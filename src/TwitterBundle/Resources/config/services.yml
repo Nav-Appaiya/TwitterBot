@@ -1,0 +1,4 @@
+services:
+    twitter.client:
+        class: TwitterBundle\Services\Twitter
+        arguments: ["@doctrine.orm.default_entity_manager"]

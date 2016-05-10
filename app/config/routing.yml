@@ -1,0 +1,3 @@
+twitter_app:
+    resource: "@AppBundle/Controller/AppController.php"
+    type:     annotation

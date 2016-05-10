@@ -1,0 +1,125 @@
+/* ========================================================================
+ * Tutorial specific styling
+ *
+ * @see: css/default.css file for generic CSS
+ * ========================================================================
+ * Copyright 2016 Bootbites.com (unless otherwise stated)
+ * For license information see: http://bootbites.com/license
+ * ======================================================================== */
+/* ==================================================
+  Card toggle
+  ================================================== */
+.card .card-img-top {
+  width: 100%; }
+
+.card-toggler {
+  cursor: pointer; }
+
+.card-on {
+  display: none; }
+
+.card-active .card-off {
+  display: none; }
+.card-active .card-on {
+  display: block; }
+@media (min-width: 544px) {
+  .card-active .card-deck .card,
+  .card-active .card-group .card {
+    display: table-cell; } }
+
+.card-effect-fade,
+.card-effect-slide-up,
+.card-effect-slide-down,
+.card-effect-slide-up-down {
+  overflow: hidden;
+  position: relative; }
+  .card-effect-fade .card-on,
+  .card-effect-fade .card-off,
+  .card-effect-slide-up .card-on,
+  .card-effect-slide-up .card-off,
+  .card-effect-slide-down .card-on,
+  .card-effect-slide-down .card-off,
+  .card-effect-slide-up-down .card-on,
+  .card-effect-slide-up-down .card-off {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%; }
+  .card-effect-fade .card-on-clone,
+  .card-effect-slide-up .card-on-clone,
+  .card-effect-slide-down .card-on-clone,
+  .card-effect-slide-up-down .card-on-clone {
+    position: relative !important;
+    visibility: hidden !important; }
+
+.card-effect-fade .card-on,
+.card-effect-fade .card-off {
+  display: block !important;
+  -webkit-transition: opacity 0.6s ease;
+  -moz-transition: opacity 0.6s ease;
+  -o-transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease; }
+.card-effect-fade .card-on {
+  z-index: -1;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0; }
+.card-effect-fade .card-off {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1; }
+.card-effect-fade.card-active .card-on {
+  z-index: 0;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1; }
+.card-effect-fade.card-active .card-off {
+  z-index: -1;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0; }
+
+.card-effect-slide-up .card-on,
+.card-effect-slide-up .card-off {
+  display: block !important;
+  -webkit-transition: top 0.4s ease;
+  -moz-transition: top 0.4s ease;
+  -o-transition: top 0.4s ease;
+  transition: top 0.4s ease; }
+.card-effect-slide-up .card-on {
+  top: 100%;
+  background: white; }
+.card-effect-slide-up.card-active .card-on {
+  top: 0; }
+
+.card-effect-slide-down .card-on,
+.card-effect-slide-down .card-off {
+  display: block !important;
+  -webkit-transition: top 0.4s ease;
+  -moz-transition: top 0.4s ease;
+  -o-transition: top 0.4s ease;
+  transition: top 0.4s ease; }
+.card-effect-slide-down .card-on {
+  top: -100%;
+  background: white; }
+.card-effect-slide-down.card-active .card-on {
+  top: 0; }
+
+.card-effect-slide-up-down .card-on,
+.card-effect-slide-up-down .card-off {
+  display: block !important;
+  -webkit-transition: top 0.4s ease;
+  -moz-transition: top 0.4s ease;
+  -o-transition: top 0.4s ease;
+  transition: top 0.4s ease; }
+.card-effect-slide-up-down .card-on {
+  top: 100%; }
+.card-effect-slide-up-down.card-active .card-on {
+  top: 0; }
+.card-effect-slide-up-down.card-active .card-off {
+  top: 100%; }
+
+/*# sourceMappingURL=tutorial.css.map */
