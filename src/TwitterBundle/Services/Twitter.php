@@ -18,10 +18,10 @@ use Symfony\Component\Serializer\Serializer;
 
 class Twitter
 {
-    protected $consumer_key = 'lc0zla2QvzPtTzcBMF566fwQL';
-    protected $consumer_secret = 'qng0UV7zCnxWutSVAhcVhUK9J8hT85dQspf8k0k6cJTMmrBUNs';
-    protected $token = '523110535-2Rdah062HqhpHPtbUeGr56TSfn9wxZWGOUSYRhMG';
-    protected $token_secret = 'E8twPMbGcV9OgHy5ZYfCm7vnKmw5GffoAmjSKnLalSRTT';
+    protected $consumer_key = '4uh3Ozf2KMi35IzONBurg';
+    protected $consumer_secret = 'QyVXcpfmtWG7PS7JOw9u2qq09HfAuUwv19EWYV0Do';
+    protected $token = '523110535-9nVEL6E7z8Gmr1QTiEwxcYaHZKffsZS4J57ciyIV';
+    protected $token_secret = 'DExgBowfqBEOjvxTqOlTWZBDU6bXjDd21LYERPTYWePH7';
 
     protected $client;
     /**
@@ -64,5 +64,21 @@ class Twitter
         $allTweets = $tweetRepo->findAll();
 
         return $allTweets;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param Client $client
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
     }
 }

@@ -17,9 +17,24 @@ class AppController extends Controller
     public function indexAction(Request $request)
     {
         $twitter = $this->get('twitter.client');
-        header("Content-Type: text/plain");
+        echo '<pre>';
 
-        print_r($twitter->getFarmedTweets());
+        print_r(json_decode($twitter->getUserTimeline()));
+
+        exit;
+    }
+
+    /**
+     * @Route("/tweet", name="app_tweet")
+     */
+    public function tweetAction(Request $request)
+    {
+        $twitter = $this->get('twitter.client');
+        $client = $twitter->getClient();
+
+        echo '<pre>';
+
+        print_r($twitter->getClient()->);
 
         exit;
     }
