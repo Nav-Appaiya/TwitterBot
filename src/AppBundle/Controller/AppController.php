@@ -16,12 +16,7 @@ class AppController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $twitter = $this->get('twitter.client');
-        echo '<pre>';
-
-        print_r(json_decode($twitter->getUserTimeline()));
-
-        exit;
+        return $this->render('@Twitter/Twitter/index.html.twig');
     }
 
     /**
@@ -34,7 +29,6 @@ class AppController extends Controller
 
         echo '<pre>';
 
-        print_r($twitter->getClient()->);
 
         exit;
     }
