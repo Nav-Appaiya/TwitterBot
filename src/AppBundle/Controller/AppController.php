@@ -16,11 +16,18 @@ class AppController extends Controller
      */
     public function indexAction(Request $request)
     {
+        return $this->render('@Twitter/Twitter/index.html.twig');
+    }
+
+    /**
+     * @Route("/tweet", name="app_tweet")
+     */
+    public function tweetAction(Request $request)
+    {
         $twitter = $this->get('twitter.client');
-        header("Content-Type: text/plain");
+        $client = $twitter->getClient();
 
-        print_r($twitter->getUserTimeline());
-
+        echo '<pre>';
         exit;
     }
 }
