@@ -19,7 +19,7 @@ class AppController extends Controller
         $twitter = $this->get('twitter.client');
         header("Content-Type: text/plain");
 
-        print_r($twitter->getFarmedTweets());
+        print_r($twitter->getUserTimeline());
 
         exit;
     }

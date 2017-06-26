@@ -1,4 +1,10 @@
 services:
     twitter.client:
         class: TwitterBundle\Services\Twitter
-        arguments: ["@doctrine.orm.default_entity_manager"]
+        arguments: ["@doctrine.orm.default_entity_manager", "@service_container"]
+
+parameters:
+    consumer_key:     "Zclf4RZqimOektZACAkPaJG3I"
+    consumer_secret:  "hOm9Gc1RQyRlHt3TfTrrZ0apDpEF5xgSNdP3gAcmJWI2xfetof"
+    token:            "523110535-E25EF8YMKIlZv5U94xZXm9FzIrCW3MlhXJfgSl4k"
+    token_secret:     "eY84F96D5i5S3QEcf4KDs44UKVo3pEiPsh4flmzXQAA46"

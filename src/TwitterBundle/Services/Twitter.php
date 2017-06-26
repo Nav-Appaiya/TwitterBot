@@ -13,32 +13,37 @@ use Doctrine\ORM\EntityManager;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
+use Symfony\Bridge\Doctrine\Tests\Fixtures\ContainerAwareFixture;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Serializer;
 
 class Twitter
 {
-    protected $consumer_key = 'lc0zla2QvzPtTzcBMF566fwQL';
-    protected $consumer_secret = 'qng0UV7zCnxWutSVAhcVhUK9J8hT85dQspf8k0k6cJTMmrBUNs';
-    protected $token = '523110535-2Rdah062HqhpHPtbUeGr56TSfn9wxZWGOUSYRhMG';
-    protected $token_secret = 'E8twPMbGcV9OgHy5ZYfCm7vnKmw5GffoAmjSKnLalSRTT';
-
     protected $client;
     /**
      * @var EntityManager
      */
     private $em;
 
-    public function __construct(EntityManager $entityManager)
+	/**
+	 * Twitter constructor.
+	 *
+	 * @param EntityManager           $entityManager
+	 * @param ContainerAwareInterface $container
+	 */
+	public function __construct(EntityManager $entityManager, ContainerInterface $container)
     {
         $this->em = $entityManager;
+        $this->container = $container;
 
         $stack = HandlerStack::create();
         $middleware = new Oauth1([
-            'consumer_key'    => $this->consumer_key,
-            'consumer_secret' => $this->consumer_secret,
-            'token'           => $this->token,
-            'token_secret'    => $this->token_secret
+            'consumer_key'    => $this->container->getParameter('consumer_key'),
+            'consumer_secret' => $this->container->getParameter('consumer_secret'),
+            'token'           => $this->container->getParameter('token'),
+            'token_secret'    => $this->container->getParameter('token_secret')
         ]);
         $stack->push($middleware);
 
