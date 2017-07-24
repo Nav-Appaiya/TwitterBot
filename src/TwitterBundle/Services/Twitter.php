@@ -40,18 +40,24 @@ class Twitter
         $stack = HandlerStack::create();
 
         if(!$this->container->getParameter('consumer_key')){
-            $this->container->setParameter('consumer_key', getenv('consumer_key'));
-            $this->container->setParameter('consumer_secret', getenv('consumer_secret'));
-            $this->container->setParameter('token', getenv('token'));
-            $this->container->setParameter('token_secret', getenv('token_secret'));
+            $consumer_key = getenv('consumer_key');
+            $consumer_secret = getenv('consumer_secret');
+            $token = getenv('token');
+            $token_secret = getenv('token_secret');
+        } else{
+            $consumer_key = $this->container->getParameter('consumer_key');
+            $consumer_secret = $this->container->getParameter('consumer_secret');
+            $token = $this->container->getParameter('token');
+            $token_secret = $this->container->getParameter('token_secret');
         }
 
         $middleware = new Oauth1([
-            'consumer_key'    => $this->container->getParameter('consumer_key'),
-            'consumer_secret' => $this->container->getParameter('consumer_secret'),
-            'token'           => $this->container->getParameter('token'),
-            'token_secret'    => $this->container->getParameter('token_secret')
+            'consumer_key'    => $consumer_key,
+            'consumer_secret' => $consumer_secret,
+            'token'           => $token,
+            'token_secret'    => $token_secret
         ]);
+
         $stack->push($middleware);
 
         $this->client = new Client([
