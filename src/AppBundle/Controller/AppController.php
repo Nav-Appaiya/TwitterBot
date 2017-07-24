@@ -25,10 +25,8 @@ class AppController extends Controller
     public function tweetAction(Request $request)
     {
         $twitter = $this->get('twitter.client');
-        $client = $twitter->getClient();
-        echo '<pre>';
+        $client = $twitter->getFarmedTweets();
 
-        print_r($twitter->g);
 
         exit;
     }

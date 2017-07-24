@@ -1,3 +1,7 @@
 twitter_app:
     resource: "@AppBundle/Controller/AppController.php"
     type:     annotation
+
+cron_twitter_app:
+    resource: "@AppBundle/Controller/CronController.php"
+    type:     annotation

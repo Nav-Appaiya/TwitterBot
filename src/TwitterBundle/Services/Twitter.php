@@ -67,7 +67,23 @@ class Twitter
         $tweetRepo = $this->em->getRepository('TwitterBundle:Tweet');
         $allTweets = $tweetRepo->findAll();
 
+        if(count($allTweets) == 0){
+            return 'Sorry, you have to fill up the tweet table with some tweets to post them. ';
+        }
+
         return $allTweets;
+    }
+
+    public function tweet($status = "Tweeting with my own Symfony3 twitterbot! Gitub: https://goo.gl/znZQ7G #symfony3 #guzzleHttp #twitterBundle")
+    {
+        return $this->client->post('statuses/update.json', [
+            'auth' => 'oauth',
+            'form_params' => [
+                'status' => $status
+            ]
+        ])
+        ->getBody()
+        ->getContents();
     }
 
     /**
