@@ -26,8 +26,10 @@ class AppController extends Controller
     {
         $twitter = $this->get('twitter.client');
         $client = $twitter->getClient();
-
         echo '<pre>';
+
+        print_r($twitter->g);
+
         exit;
     }
 }

@@ -16,3 +16,4 @@ tests
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+src/TwitterBundle/Resources/config/services.yml
