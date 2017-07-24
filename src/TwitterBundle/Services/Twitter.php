@@ -38,6 +38,14 @@ class Twitter
         $this->container = $container;
 
         $stack = HandlerStack::create();
+
+        if(!$this->container->getParameter('consumer_key')){
+            $this->container->setParameter('consumer_key', getenv('consumer_key'));
+            $this->container->setParameter('consumer_secret', getenv('consumer_secret'));
+            $this->container->setParameter('token', getenv('token'));
+            $this->container->setParameter('token_secret', getenv('token_secret'));
+        }
+
         $middleware = new Oauth1([
             'consumer_key'    => $this->container->getParameter('consumer_key'),
             'consumer_secret' => $this->container->getParameter('consumer_secret'),
